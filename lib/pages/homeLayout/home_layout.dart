@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:zerodhakite/homepage.dart';
 
 class Homelayout extends StatefulWidget {
   //const Homelayout({Key? key}) : super(key: key);
@@ -45,9 +46,20 @@ class _HomelayoutState extends State<Homelayout> {
                   children: [
                     Container(
                       height: headerheight,
-                      child: const Center(
-                        child: Text("shop here"),
-                      ),
+                      child: Column(children: const [
+                        // IconButton(
+                        //     onPressed: () {
+                        //       Homepage().controller.fling(
+                        //           velocity: Homepage.isPannelVisible ? -1.0 : 1.0);
+                        //     },
+                        //     icon: AnimatedIcon(
+                        //       icon: AnimatedIcons.close_menu,
+                        //       progress: controller.view,
+                        //     )),
+
+                        Text("shop here"),
+                        
+                      ]),
                     ),
                     const Expanded(
                         child: Center(

@@ -29,22 +29,29 @@ class _MyAppState extends State<MyApp> {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key,}) : super(key: key);
+  const MyHomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
- @override
+  @override
   void initState() {
     super.initState();
     Timer(
         const Duration(seconds: 3),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Homepage())));
+            context,
+            MaterialPageRoute(
+                builder: (context) => const Homepage(
+                      title: 'Overview',
+                    ))));
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
@@ -52,7 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // When navigating to the "/" route, build the FirstScreen widget.
         //'/login': (context) => const LoginScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        '/homeScreen': (context) => const Homepage(),
+        '/homeScreen': (context) => const Homepage(
+              title: 'Overview',
+            ),
         //'/drawerScreen': (context) =>  CustomDrawer(),
       },
       home: Material(
@@ -87,10 +96,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       //   'assets/icons/main_logo.png',
                       //   height: 100,
                       //   width: 100,
-                        //width: MediaQuery.of(context).size.width,
-                        // fit: BoxFit.cover,
+                      //width: MediaQuery.of(context).size.width,
+                      // fit: BoxFit.cover,
                       //),
-                     const SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -104,16 +113,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                 fontStyle: null,
                                 color: Colors.grey[200]),
                           ),
-                          
                         ],
                       ),
-                    //  const Text(
-                    //     "STYLE THAT FIT IN YOUR LIFE STYLE",
-                    //     style: TextStyle(
-                    //         fontSize: 12.0,
-                    //         fontWeight: FontWeight.bold,
-                    //         color: Colors.white70),
-                    //   ),
+                      //  const Text(
+                      //     "STYLE THAT FIT IN YOUR LIFE STYLE",
+                      //     style: TextStyle(
+                      //         fontSize: 12.0,
+                      //         fontWeight: FontWeight.bold,
+                      //         color: Colors.white70),
+                      //   ),
                       // SizedBox(
                       //   height: 100,
                       // ),
@@ -152,5 +160,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     //Image.asset('assets/images/splashscreen.png', fit: BoxFit.cover),
   }
-  
 }
