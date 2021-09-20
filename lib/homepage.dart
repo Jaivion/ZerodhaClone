@@ -34,7 +34,7 @@ class _HomepageState extends State<Homepage>
 
   //------------------------------------------
 
-  static const headerheight = 500.0;
+  static const headerheight = 450.0;
   Animation<RelativeRect> getPannelAnimation(BoxConstraints constraints) {
     final height = constraints.biggest.height;
     final backPannelHeight = height - headerheight;
@@ -64,13 +64,198 @@ class _HomepageState extends State<Homepage>
         width: size.width,
         child: Stack(
           children: [
-            Center(
+            Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Container(
+                color: const Color(0xfff9f9f9),
                 child: Column(
                   children: [
-                    const Text("Back Pannel"),
-                    ElevatedButton(
-                        onPressed: onClick, child: const Icon(Icons.close)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Overview",
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey[700])),
+                        IconButton(
+                          iconSize: 32,
+                          color: Colors.grey[700],
+                          icon: const Icon(Icons.close),
+                          onPressed: onClick,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "NIFTY 50",
+                                style: TextStyle(
+                                    color: Colors.grey[700],
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                "17426.80",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: const [
+                                  Text(
+                                    "+125.35",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.red),
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Text(
+                                    "+1.07%",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.red),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                "Charts",
+                                style: TextStyle(
+                                    fontSize: 30, color: Colors.grey[200]),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            width: 70,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "NIFTY BANK",
+                                style: TextStyle(
+                                    color: Colors.grey[700],
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                "371426.80",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: const [
+                                  Text(
+                                    "+666.35",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.red),
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Text(
+                                    "+1.76%",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.red),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                "Charts",
+                                style: TextStyle(
+                                    fontSize: 30, color: Colors.grey[200]),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "* Charts indicate 52 weeks trend",
+                            style: TextStyle(
+                                fontSize: 12, color: Colors.grey[400]),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Center(
+                        child: Container(
+                          height: 1,
+                          color: Colors.grey[300],
+                          width: size.width * 0.9,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Funds",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: Colors.grey[700]),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Equity",
+                            style: TextStyle(
+                                // fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: Colors.grey[400]),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "11,12,586.70",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Colors.grey[600]),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -81,15 +266,26 @@ class _HomepageState extends State<Homepage>
                 child: Container(
                   height: size.height,
                   width: size.width,
-                  color: Colors.green,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    boxShadow: [
+                      BoxShadow(
+                        color: buttonclicked ? Colors.black45 : Colors.white,
+                        offset: const Offset(5.0, 5.0),
+                        blurRadius: 10.0,
+                        spreadRadius: 5.0,
+                      ),
+                    ],
+                  ),
+                  //color: Colors.green,
                   child: Column(
                     children: [
                       Expanded(
                         child: Container(
                           child: Column(children: [
-                            ElevatedButton(
+                            IconButton(
                                 onPressed: onClick,
-                                child: buttonclicked
+                                icon: buttonclicked
                                     ? const Icon(Icons.arrow_upward)
                                     : const Icon(Icons.arrow_downward)),
                             const Text("touch here"),
